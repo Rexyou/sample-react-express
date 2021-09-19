@@ -10,10 +10,12 @@ export default class List extends React.Component {
         }
     }
 
-    async componentDidMount() {
-        await axios.get('/api/getList')
+    componentDidMount() {
+        axios.get('/api/getList')
         .then(
             res => {
+                console.log("Current Data: "+res);
+                console.warn("Data: "+res.data);
                 this.setState({ list: res.data, init:1});
             }
         )
